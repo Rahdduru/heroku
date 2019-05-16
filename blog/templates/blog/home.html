@@ -1,0 +1,26 @@
+{% extends 'blog/layout.html' %}
+	{% block content1 %}
+	{% for blog in blogs.all %}
+	<div class="alert alert-primary" role="alert" style="padding: 30px; margin: 20px 40px;">
+		<div class="home_title" style="text-align: center; font-size: 23px; color: #424242;">
+			<h4 class="alert-heading"><b>Title[ <a style="color: royalblue;">{{ blog.title }}</a> ]</b></h4>
+        </div>
+        
+        <hr style="border-color: #424242;">
+		
+		<div class="home_content"  style="text-align: right;">
+			<span class="badge badge-pill badge-secondary"><i>[ {{ blog.pub_date }} ]</i></span>
+		</div>
+
+		<div class="home_write" style="color: #585858; font-size: 18px;">
+			<p>{{ blog.body }}</p>
+		</div>
+
+		<div class="home_buttons" style="text-align: right;">
+			<a role="button" class="btn-outline-secondary" href="{% url 'edit' pk=blog.pk %}#services">Edit</a>
+			&nbsp;&nbsp;
+			<a role="button" class="btn-outline-danger" href="{% url 'remove' pk=blog.pk %}#portfolio">Remove</a>
+		</div>
+	</div>
+	{% endfor %}
+	{% endblock %}

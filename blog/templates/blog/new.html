@@ -1,0 +1,17 @@
+{% extends 'blog/layout.html'%}
+{% block content %}
+<div class="new" style="padding: 10px 320px;">
+    <form method='POST'>
+        {% csrf_token %}
+        <div style="text-align: center; font-size: 20px;">
+        <table class="new_table">
+            {{form.as_table}}
+        </table>
+        </div>
+        <div class="new_button" style="text-align: center; font-size: 10px;">
+            <input class="btn btn-outline-warning" onClick="location.href='#portfolio'" type="submit" value="Submission">
+            <!-- <input type="button" class="btn btn-outline-primary" value="Submission" onClick="location.href='{% url 'home'%}#portfolio'"> -->
+        </div>
+    </form>
+</div>
+{% endblock %}
